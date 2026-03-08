@@ -36,7 +36,9 @@ where:
 - $1$ = batch size (single answer per run)
 - $T$ = total number of tokens (prompt + generated tokens)
 
-For efficiency, we take the maximum attention score across the heads dimension, yielding:
+As shown in <img href = "Assets/BoxPlotAttentionScores.png">
+
+We take the maximum attention score across the heads dimension, yielding:
 
 $$\mathcal{B} \in \mathbb{R}^{N \times L \times 1 \times T}$$
 
@@ -98,6 +100,10 @@ We use a token-based logic to categorize tokens into predefined reasoning phases
 
 - To better study the relationship between different reasoning steps and its impact on final results.
 - To reduce attention to irrelevant contexts.
+
+"Semantic masking" allowed us to further investigate the correlation between different reasoning steps and its impact on final results. As an example, given the current category. e.g, if we are during the generation of a "problem setup" sentence, we mask out all the tokens from the "Computation" category.
+Surprisingly, we found out that we still get correct responses although it has a larger number of tokens.
+<img href = "Assets/CausalVsSemanticMasking.png"/>
 
 ---
 
