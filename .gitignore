@@ -1,0 +1,5 @@
+.filtered_qa_attn_results/
+.filtered_qa_attn_results_causal_masking/
+.filtered_qa_attn_results_changed_masking/
+.env
+attention-analysis (2).ipynb
