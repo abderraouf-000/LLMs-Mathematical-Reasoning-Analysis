@@ -148,12 +148,31 @@ In reasoning, 'wait' usually defines the phase uncertainty management where the 
 - Maintains compatibility with standard Transformers attention while adding custom features.
 
 ## Can we replace Key value pairs with semantic features
-For the sake of probing the correlation of different reasoning phases on the self-attention level, We experimented with replacing standard self-attention that uses Key-value pairs by a 28-features vector that consists of (Query token type, Query token position (with respect to generations), key token type, key token position) where types are represented using one-hot encoding.
-Surprisingly, We tried it on a single layer's head and we found out: 
-At the beginning of regression training using a KL divergence loss.
+To investigate the correlation between different reasoning phases at the self-attention level, we experimented with replacing the standard self-attention mechanism (which relies on key–value pairs) with a **28-feature vector representation**.
+
+This vector encodes:
+
+- **Query token type**
+- **Query token position** (relative to the generation step)
+- **Key token type**
+- **Key token position**
+
+Token types are represented using **one-hot encoding**.
+
+We first applied this modification to **a single attention head within one layer** and trained a regression model using **KL-divergence loss**.
+
+Interestingly, the behavior changes significantly during training.
+
+### KL Divergence at the Beginning of Training
+
 ![KL divergence at the beginning](Assets/KL_loss_0.png)
-.VS in later training steps
+
+### KL Divergence at Later Training Steps
+
 ![KL divergence at the end](Assets/KL_loss_end.png)
 
+## Future Work
 
+As future work, we plan to further explore replacing the standard self-attention mechanism with **feature-engineered representations**. In particular, we aim to investigate the use of **higher-level semantic features** to model interactions between tokens, rather than relying solely on the traditional key–value attention formulation.
 
+This direction may help reveal whether attention patterns can be approximated or explained through structured features that capture **token roles, reasoning phases, or semantic relationships** during generation.
