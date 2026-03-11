@@ -36,9 +36,9 @@ where:
 - $1$ = batch size (single answer per run)
 - $T$ = total number of tokens (prompt + generated tokens)
 
-As shown in <img href = "Assets/BoxPlotAttentionScores.png">
+![Attention scores box plot across all layers](Assets/BoxPlotAttentionScores.png)
 
-We take the maximum attention score across the heads dimension, yielding:
+For efficiency, we take the maximum attention score across the heads dimension, yielding:
 
 $$\mathcal{B} \in \mathbb{R}^{N \times L \times 1 \times T}$$
 
@@ -101,11 +101,19 @@ We use a token-based logic to categorize tokens into predefined reasoning phases
 - To better study the relationship between different reasoning steps and its impact on final results.
 - To reduce attention to irrelevant contexts.
 
-"Semantic masking" allowed us to further investigate the correlation between different reasoning steps and its impact on final results. As an example, given the current category. e.g, if we are during the generation of a "problem setup" sentence, we mask out all the tokens from the "Computation" category.
-Surprisingly, we found out that we still get correct responses although it has a larger number of tokens.
-<img href = "Assets/CausalVsSemanticMasking.png"/>
+### Findings
+
+Semantic masking allowed us to further investigate the correlation between different reasoning steps and its impact on final results. As an example, given the current generation category — e.g., if we are generating a "Problem Setup" sentence — we mask out all tokens belonging to the "Computation" category.
+
+Surprisingly, we still obtain correct responses under this masking scheme, although with a larger number of output tokens.
+
+![Causal vs. Semantic Masking comparison](Assets/CausalVsSemanticMasking.png)
 
 ---
+
+
+## Does the "Wait" matter
+In reasoning, 'wait' usually defines the phase uncertainty management where the model revise its previous generation. To verify its importance in the correctness of the final answer, we have crafted 10 samples with an arbitrary wrong reasoning step, then injected the magical 'wait'. Surprisingly, the LLM corrected itself in all the samples.  
 
 ## Custom Llama Model
 
