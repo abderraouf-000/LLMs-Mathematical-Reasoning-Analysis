@@ -72,7 +72,14 @@ The prompt and thinking process were decomposed into 12 categories, following a 
 
 > **Note:** Classification was carried out using code rather than LLMs.
 
+Analyzing attention scores across these categories revealed a correlation between the current reasoning phase and attention scores.
+![Heatmap of attention scores](Assets/Mean_attention_heatmap.png)
+![Box plot of attention scores across categories](Assets/Queries_to_key.png)
+
 ---
+
+
+
 
 ## Custom KV-Cache Generation Pipeline
 
@@ -100,8 +107,6 @@ We use a token-based logic to categorize tokens into predefined reasoning phases
 
 - To better study the relationship between different reasoning steps and its impact on final results.
 - To reduce attention to irrelevant contexts.
-
-### Findings
 
 Semantic masking allowed us to further investigate the correlation between different reasoning steps and its impact on final results. As an example, given the current generation category — e.g., if we are generating a "Problem Setup" sentence — we mask out all tokens belonging to the "Computation" category.
 
