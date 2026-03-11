@@ -151,7 +151,7 @@ In reasoning, 'wait' usually defines the phase uncertainty management where the 
 For the sake of probing the correlation of different reasoning phases on the self-attention level, We experimented with replacing standard self-attention that uses Key-value pairs by a 28-features vector that consists of (Query token type, Query token position (with respect to generations), key token type, key token position) where types are represented using one-hot encoding.
 Surprisingly, We tried it on a single layer's head and we found out: 
 At the beginning of regression training using a KL divergence loss.
-![KL divergence at the beginning](](Assets/KL_loss_0.png))
+![KL divergence at the beginning](Assets/KL_loss_0.png)
 .VS in later training steps
 ![KL divergence at the end](Assets/KL_loss_end.png)
 
