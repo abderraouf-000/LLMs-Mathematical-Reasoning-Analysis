@@ -111,6 +111,10 @@ Surprisingly, we still obtain correct responses under this masking scheme, altho
 
 ---
 
+
+## Does the "Wait" matter
+In reasoning, 'wait' usually defines the phase uncertainty management where the model revise its previous generation. To verify its importance in the correctness of the final answer, we have crafted 10 samples with an arbitrary wrong reasoning step, then injected the magical 'wait'. Surprisingly, the LLM corrected itself in all the samples.  
+
 ## Custom Llama Model
 
 ### 1. Attention Regressor Integration
