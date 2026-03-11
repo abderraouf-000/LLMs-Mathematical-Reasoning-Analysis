@@ -120,7 +120,7 @@ In reasoning, 'wait' usually defines the phase uncertainty management where the 
 ### 1. Attention Regressor Integration
 
 - Added an `AttentionRegression` neural network class for predicting attention scores.
-- Integrated the regressor into attention layers (specifically layers 25–31).
+- Integrated the regressor into attention layers.
 - The regressor uses 28-dimensional input features including token types and positional information.
 
 ### 2. Enhanced Attention Mechanism
@@ -146,3 +146,14 @@ In reasoning, 'wait' usually defines the phase uncertainty management where the 
 - Extended SDPA attention to handle semantic token types.
 - Falls back to a manual attention implementation when `output_attentions` is required.
 - Maintains compatibility with standard Transformers attention while adding custom features.
+
+## Can we replace Key value pairs with semantic features
+For the sake of probing the correlation of different reasoning phases on the self-attention level, We experimented with replacing standard self-attention that uses Key-value pairs by a 28-features vector that consists of (Query token type, Query token position (with respect to generations), key token type, key token position) where types are represented using one-hot encoding.
+Surprisingly, We tried it on a single layer's head and we found out: 
+At the beginning of regression training using a KL divergence loss.
+![KL divergence at the beginning](](Assets/KL_loss_0.png))
+.VS in later training steps
+![KL divergence at the end](Assets/KL_loss_end.png)
+
+
+
