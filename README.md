@@ -73,7 +73,9 @@ The prompt and thinking process were decomposed into 12 categories, following a 
 > **Note:** Classification was carried out using code rather than LLMs.
 
 Analyzing attention scores across these categories revealed a correlation between the current reasoning phase and attention scores.
+
 ![Heatmap of attention scores](Assets/Mean_attention_heatmap.png)
+
 ![Box plot of attention scores across categories](Assets/Queries_to_key.png)
 
 ---
