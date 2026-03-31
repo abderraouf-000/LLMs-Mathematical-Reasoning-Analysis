@@ -2,8 +2,7 @@
 
 ## Introduction
 
-By efficient reasoning, we generally refer to reducing the length of the thinking process before providing the final answer, while maintaining the correctness of the answers. In this report, however, we have added a new category: reducing the thinking cost.
-
+By efficient reasoning, we generally refer to reducing the length of the thinking process before providing the final answer, while maintaining the correctness of the answer.
 There are plenty of methods targeting different aspects, among which we mention:
 
 - **RL methods**: Use a length-based reward model.
@@ -46,8 +45,8 @@ Across different samples, the average or maximum is then calculated for every se
 
 **Key findings from the box plots:**
 
-- **Computation** sentences are the least attended key sentence category among all categories — the LLM may attend to partial results instead.
-- **Given Information** and **Uncertainty Management** categories have large outlier attention scores, warranting further analysis (covered in later sections).
+- **Computation** sentences are the least attended key sentence category among all categories.
+- **Given Information** and **Uncertainty Management** categories have large outlier attention scores. In this case, we need further analysis to explain this large variance.
 - The **Question** category is the most attended, which is expected as it provides the main context.
 
 ### Reasoning Categories
