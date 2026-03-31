@@ -179,6 +179,6 @@ Interestingly, the behavior changes significantly during training.
 
 ## Future Work
 
-As future work, we plan to further explore replacing the standard self-attention mechanism with **feature-engineered representations**. In particular, we aim to investigate the use of **higher-level semantic features** to model interactions between tokens, rather than relying solely on the traditional key–value attention formulation.
+As future work, we plan to further explore replacing the standard self-attention mechanism with **feature-engineered representations**. In particular, we aim to investigate the use of **Semantic features** to model relations between tokens, rather than relying solely on the traditional key–value self-attention.
 
 This direction may help reveal whether attention patterns can be approximated or explained through structured features that capture **token roles, reasoning phases, or semantic relationships** during generation.
